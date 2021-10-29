@@ -35,20 +35,24 @@ const PlaceOrder = () => {
     return (
         <div>
             <div className="w-75 mx-auto bg-light p-5">
-            <Card>
+            <Card className="border-none shadow-lg">
             <div className="row">
                 <div className="col-12 col-lg-5">
                 <Card.Img style={{height: '100%!important'}} className="img-fluid" variant="top" src={service?.img} />
                 </div>
                 <div className="col-12 col-lg-7">
-                    <Card.Body>
+                    <Card.Body className="">
                         <Card.Title>{service?.title}</Card.Title>
-                        <Card.Text>{service?.place}</Card.Text>
+                        <Card.Title>{service?.place}</Card.Title>
                         <Card.Text>{service?.location}</Card.Text>
-                        <Card.Text>
+                        <Card.Text className="fw-light">
                         {service?.description}
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <div className="d-flex justify-content-between align-items-center">
+                               <h5 className="dark-blue px-3 p-1 text-white rounded">{service?.price}</h5>
+                               <h5 className="dark-blue px-3 p-1 text-white rounded">{service?.duration}</h5>
+                        </div>
+                        <h4>Review({service?.rate})</h4>
                     </Card.Body>
                 </div>
             </div>
