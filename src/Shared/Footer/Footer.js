@@ -45,7 +45,7 @@ const Footer = () => {
                     </Table>
                </div>
                <div className="col-lg-3 col-6">
-                    <h1>Contact</h1>
+                    <h3>Contact</h3>
                </div>
            </div>
         </div>

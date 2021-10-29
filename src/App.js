@@ -16,14 +16,14 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App overflow-hidden">
       <AuthContext>
      <Router>
       <Header/>
        <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/home" component={Home}/>
-          <PrivateRoute path="/placeOrder">
+          <PrivateRoute path="/placeOrder/:id">
               <PlaceOrder/>
           </PrivateRoute>
           <Route path="/myOrder" component={MyOrders}/>
