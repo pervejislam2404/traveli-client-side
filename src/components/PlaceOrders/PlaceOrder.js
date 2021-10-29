@@ -1,18 +1,79 @@
 import React, { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import axios from 'axios';
+import { Card, Button } from 'react-bootstrap';
+import UseAuth from '../../Context/UseAuth';
 
 const PlaceOrder = () => {
-    const [service,setService] = useState()
+    const { register, handleSubmit,reset } = useForm();
+    const [service,setService] = useState({})
     const {id} = useParams();
+    const {user} = UseAuth()
+
 
     useEffect(()=>{
-        axios(`http://localhost:5040/service/${id}`)
-        .then(res=>setService(res.data))
-    },[])
+        axios(`https://tranquil-beyond-59039.herokuapp.com/service/${id}`)
+        .then(res=>{
+            setService(res.data)
+            reset(res.data)
+        })
+    },[reset])
+
+    
+    const onSubmit = data => {
+        data.status= 'pending'
+       axios.post(`https://tranquil-beyond-59039.herokuapp.com/addedService`,data)
+       .then(res=>{
+           if(res.data){
+               alert('added successful')
+           }
+       })
+     };
+   
+    
     return (
         <div>
-            <h1>{service?.title}</h1>
+            <div className="w-75 mx-auto bg-light p-5">
+            <Card>
+            <div className="row">
+                <div className="col-12 col-lg-5">
+                <Card.Img style={{height: '100%!important'}} className="img-fluid" variant="top" src={service?.img} />
+                </div>
+                <div className="col-12 col-lg-7">
+                    <Card.Body>
+                        <Card.Title>{service?.title}</Card.Title>
+                        <Card.Text>{service?.place}</Card.Text>
+                        <Card.Text>{service?.location}</Card.Text>
+                        <Card.Text>
+                        {service?.description}
+                        </Card.Text>
+                        <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
+                </div>
+            </div>
+             </Card>
+            </div>
+
+            <div className="w-75 mx-auto bg-light pb-5">
+               <div className="row">
+                   <div className="col-lg-4 col-12"></div>
+                   <div className="col-lg-4 col-12">
+                        <form className="d-flex flex-column border p-3 bg-white" onSubmit={handleSubmit(onSubmit)}>
+                            <input className="my-2 p-2" {...register("email")} defaultValue={user?.email} placeholder="Email"/>
+                            <input className="my-2 p-2" {...register("rate")} defaultValue={service?.rate} placeholder="Rating"/>
+                            <input className="my-2 p-2" {...register("title")} defaultValue={service?.title} placeholder="Title"/>
+                            <input className="my-2 p-2" {...register("place")} defaultValue={service?.place} placeholder="Place"/>
+                            <input className="my-2 p-2" {...register("duration")} defaultValue={service?.duration} placeholder="Duration"/>
+                            <input className="my-2 p-2" {...register("location")} defaultValue={service?.location} placeholder="Location"/>
+                            <input className="my-2 p-2" {...register("description")} defaultValue={service?.description} placeholder="Description"/>
+                            <input className="my-2 p-2" type="text" {...register("price")} defaultValue={service?.price} />
+                            <input className="my-2 p-2 bg-danger text-white border-0" type="submit" />
+                        </form>
+                   </div>
+                   <div className="col-lg-4 col-12"></div>
+               </div>
+            </div>
         </div>
     );
 };

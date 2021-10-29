@@ -20,7 +20,7 @@ const Service = ({service}) => {
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
-               {description.slice(0,20)}
+               {description.slice(0,60)+'...'}
                 </Card.Text>
                 <Button onClick={()=>handleClick(service._id)} variant="danger" className="px-4 fw-bold">Add</Button>
             </Card.Body>
