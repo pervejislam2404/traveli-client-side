@@ -26,9 +26,13 @@ function App() {
           <PrivateRoute path="/placeOrder/:id">
               <PlaceOrder/>
           </PrivateRoute>
-          <Route path="/myOrder" component={MyOrders}/>
+          <PrivateRoute path="/myOrder">
+            <MyOrders/>
+          </PrivateRoute>
           <Route path="/manageAll" component={ManageAll}/>
-          <Route path="/newService" component={NewService}/>
+          <PrivateRoute path="/newService">
+            <NewService/>
+          </PrivateRoute>
           <Route path="/login" component={Login}/>
           <Route path="*" component={NotFound}/>
        </Switch>

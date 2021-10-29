@@ -18,12 +18,13 @@ const MyOrders = () => {
     const handleDelete =(id)=>{
         const checker = window.confirm('Are you sure delete?')
       if(checker){ console.log(id);
-        axios.delete(`https://tranquil-beyond-59039.herokuapp.com/delete/${id}`)
+        axios.delete(`https://tranquil-beyond-59039.herokuapp.com/cancel/${id}`)
         .then(res=>{
-          if(res.data.acknowledged){
+          if(res.data){
+              console.log(res.data);
               alert('delete successful')
-              const rest = added.filter(it=> it._id !== id);
-              setAdded(rest)
+            //   const rest = added.filter(it=> it._id !== id);
+            //   setAdded(rest)
           };
         })}
     }
@@ -34,17 +35,23 @@ const MyOrders = () => {
     // console.log(added,user.email);
     return (
         <div>
-           <div className="container mx-auto bg-light row py-5">
+           <div className="container mx-auto bg-light row py-5 g-4">
                {added?.map((item,index)=> {return(
                    <div key={index} className="col-12 col-lg-4">
-                            <Card>
+                            <Card className="border-0 shadow-lg">
                             <Card.Img height="250"variant="top" src={item?.img} />
                             <Card.Body>
-                                <Card.Title>{item?.title}</Card.Title>
-                                <Card.Text>
-                               {item?.description}
+                                <Card.Title className="text-danger fs-4">{item?.title}</Card.Title>
+                                <Card.Title className="text-danger">{item?.place}</Card.Title>
+                                <Card.Text className="fw-light">
+                                  {item?.description}
                                 </Card.Text>
-                                <Button onClick={()=>handleDelete(item._id)} variant="danger text-white">Delete</Button>
+                                <Button onClick={()=>handleDelete(item._id)} variant="danger text-white my-3">Delete</Button>
+                                <div className="d-flex justify-content-between">
+                                    <h5 className="dark-blue px-2 text-white rounded">{item?.price}</h5>
+                                    <h5 className="dark-blue px-3 p-1 text-white rounded">{item?.duration}</h5>
+                                    <h5 className="">Review({item?.rate})</h5>
+                                </div>
                             </Card.Body>
                             </Card>
                    </div>

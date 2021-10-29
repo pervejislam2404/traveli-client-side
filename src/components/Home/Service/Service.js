@@ -19,10 +19,16 @@ const Service = ({service}) => {
             </div>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
+                <Card.Title>{place}</Card.Title>
+                <Card.Text>{location}</Card.Text>
                 <Card.Text>
                {description.slice(0,60)+'...'}
                 </Card.Text>
+                <h5>Review({rate})</h5>
+                <div className="d-flex justify-content-between align-items-center">
                 <Button onClick={()=>handleClick(service._id)} variant="danger" className="px-4 fw-bold">Add</Button>
+                <span className="fs-5 dark-blue text-white p-2 px-3 rounded">{duration}</span>
+                </div>
             </Card.Body>
             </Card>
         </div>

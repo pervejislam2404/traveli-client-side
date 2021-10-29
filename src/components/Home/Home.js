@@ -24,7 +24,7 @@ const Home = () => {
                         items.map((service,index)=><Service key={index} service={service}/>)
                         }
                </div>:
-              <div className="w-50 text-center">
+              <div className="w-50 mx-auto text-center">
                    <img src={mySpinner} alt="" />
               </div>
                }

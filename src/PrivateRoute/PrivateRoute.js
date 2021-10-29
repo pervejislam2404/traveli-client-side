@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
+import mySpinner from './spinner.png'
 import UseAuth from '../Context/UseAuth';
 
 
@@ -8,7 +8,11 @@ const PrivateRoute = ({children,...rest}) => {
     const {user,isLoading} = UseAuth() 
    
     if(isLoading){
-      return <Spinner className="mx-auto mt-5 pt-5" animation="grow" />
+      return (
+        <div className="w-50 mx-auto text-center">
+            <img src={mySpinner} alt="" />
+        </div>
+        )
     }
     return (
       <Route

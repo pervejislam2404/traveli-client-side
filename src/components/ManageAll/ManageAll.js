@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './ManageAll.css';
 import { Card,Button } from 'react-bootstrap';
 
 const ManageAll = () => {
@@ -42,10 +43,10 @@ const ManageAll = () => {
             <div className="container mx-auto bg-light row my-5 py-4 g-4">
                {allUser.map(service=>{return(
                    <div className="col-3">
-                        <Card>
+                        <Card className="border-0 cart">
                         <Card.Img variant="top" height="150" src={service?.img} />
                         <Card.Body>
-                            <Card.Title>{service?.title}</Card.Title>
+                            <Card.Title className="fs-4 py-2">{service?.title}</Card.Title>
                             <Card.Title><span className="dark-blue text-white px-3 rounded fw-bold py-1">{service?.price}</span></Card.Title>
                             <Card.Text>{service?.place}</Card.Text>
                             <Card.Text>{service?.location}</Card.Text>

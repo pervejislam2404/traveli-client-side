@@ -1,0 +1,13 @@
+.cart {
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+
+.cart:hover {
+    box-shadow: 2px 1px 22px 8px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 2px 1px 22px 8px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 1px 22px 8px rgba(0, 0, 0, 0.2);
+}
