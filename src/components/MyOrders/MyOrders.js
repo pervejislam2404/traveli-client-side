@@ -12,13 +12,14 @@ const MyOrders = () => {
       axios(`https://tranquil-beyond-59039.herokuapp.com/added/${user.email}`)
         .then(res=>{
             setAdded(res.data)
+            console.log(res.data);
         })
     },[user.email])
     
     const handleDelete =(id)=>{
         const checker = window.confirm('Are you sure delete?')
-      if(checker){ console.log(id);
-        axios.delete(`https://tranquil-beyond-59039.herokuapp.com/cancel/${id}`)
+      if(checker){ 
+        axios.delete(`https://tranquil-beyond-59039.herokuapp.com/deleteOne/${id}`)
         .then(res=>{
           if(res.data){
               console.log(res.data);
@@ -26,6 +27,7 @@ const MyOrders = () => {
             //   const rest = added.filter(it=> it._id !== id);
             //   setAdded(rest)
           };
+          console.log(typeof(id));
         })}
     }
     

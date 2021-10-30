@@ -10,13 +10,13 @@ const Guide = () => {
      .then(res=> setGuides(res.data))
     },[])
     return (
-        <div className="bg-light py-5 light-bg">
+        <div className="light-blue py-5">
             <div className="row">
                 <div className="text-center text-danger py-3"><h2>OUR BEST GUIDES</h2></div>
                 <div className="col-12 col-lg-3"></div>
                 <div className="col-12 col-lg-6 row">
-                   {guides.map(guide=>{return(
-                       <div className="col-lg-4 col-12">
+                   {guides.map((guide,index)=>{return(
+                       <div key={index} className="col-lg-4 col-12">
                        <Card className="border-0">
                         <Card.Img height="250" variant="top" src={guide.img} />
                         <Card.Body className="text-center bg-warning">

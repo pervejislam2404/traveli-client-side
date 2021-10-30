@@ -6,6 +6,7 @@ import Banner from './Banner/Banner';
 import Service from './Service/Service';
 import mySpinner from './spinner.png'
 import Guide from './Guidors/Guide';
+import Gallery from './Gallery/Gallery';
 
 const Home = () => {
     const [items,setItems] = useState([]) 
@@ -31,6 +32,7 @@ const Home = () => {
                <div className="col-2 col-lg-2"></div>
            </div>
          <Guide/>
+         <Gallery/>
        
          </div>
     );

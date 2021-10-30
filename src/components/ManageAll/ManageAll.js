@@ -29,7 +29,7 @@ const ManageAll = () => {
     const handleDelete=(id) => {
         const checker = window.confirm('Are you sure delete?')
       if(checker){ console.log(id);
-        axios.delete(`https://tranquil-beyond-59039.herokuapp.com/delete/${id}`)
+        axios.delete(`https://tranquil-beyond-59039.herokuapp.com/deleteOne/${id}`)
         .then(res=>{
           if(res.data.acknowledged){
               alert('delete successful')
@@ -41,8 +41,8 @@ const ManageAll = () => {
     return (
         <div>
             <div className="container mx-auto bg-light row my-5 py-4 g-4">
-               {allUser.map(service=>{return(
-                   <div className="col-3">
+               {allUser.map((service,index)=>{return(
+                   <div key={index} className="col-3">
                         <Card className="border-0 cart">
                         <Card.Img variant="top" height="150" src={service?.img} />
                         <Card.Body>

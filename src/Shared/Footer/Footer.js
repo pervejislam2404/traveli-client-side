@@ -44,8 +44,11 @@ const Footer = () => {
                         </tbody>
                     </Table>
                </div>
-               <div className="col-lg-3 col-6">
-                    <h3>Contact</h3>
+               <div className="col-lg-3 col-6 d-flex flex-column align-items-center justify-content-between fs-1">
+                <i class="fab fa-facebook-square text-primary"></i>
+                <i class="fab fa-instagram-square text-danger"></i>
+                <i class="fab fa-youtube-square text-danger"></i>
+                <i class="fab fa-twitter-square text-primary"></i>
                </div>
            </div>
         </div>
