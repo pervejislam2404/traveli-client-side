@@ -7,12 +7,12 @@ import UseAuth from '../../Context/UseAuth';
 const Header = () => {
 
     const {user,logOut} = UseAuth()
-    // console.log(user);
+
     return (
         
         <div>
 
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                 <Navbar.Brand href="#home"><img src={myLogo} alt="" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

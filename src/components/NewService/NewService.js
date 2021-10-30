@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import swal from 'sweetalert';
 
 const NewService = () => {
     const { register, handleSubmit,reset } = useForm();
@@ -11,7 +12,11 @@ const NewService = () => {
         axios.post('https://tranquil-beyond-59039.herokuapp.com/newUser',data)
         .then((response) => {
             if(response.data){
-                alert('services added successful')
+                swal({
+                    title: "Added successful!",                   
+                    icon: "success",
+                    button: "Aww yiss!",
+                  });
                 reset()
             }
         })

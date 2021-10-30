@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './ManageAll.css';
 import { Card,Button } from 'react-bootstrap';
+import swal from 'sweetalert';
+
+
 
 const ManageAll = () => {
     const [allUser,setAllUser] =useState([]);
@@ -21,23 +24,43 @@ const ManageAll = () => {
             if(response.data){
                 console.log(response.data);
                 setChecker(true)
+                swal({
+                    title: "Approved!",                    
+                    icon: "success",
+                  });
             }
         })
      
     }
 
     const handleDelete=(id) => {
-        const checker = window.confirm('Are you sure delete?')
-      if(checker){
-        axios.delete(`https://tranquil-beyond-59039.herokuapp.com/deleteOne/${id}`)
-        .then(res=>{
-          if(res.data.acknowledged){
-              alert('delete successful')
-              const rest =allUser.filter(it=> it._id !== id);
-              setAllUser(rest)
-          };
-        })}
+
+        swal({
+            title: "Are you sure to delete?",            
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+
+            if (willDelete) {
+              swal("Ops! File has been deleted!", {
+                icon: "success",
+              });
+              axios.delete(`https://tranquil-beyond-59039.herokuapp.com/deleteOne/${id}`)
+              .then(res=>{
+                if(res.data.acknowledged){             
+                    const rest =allUser.filter(it=> it._id !== id);
+                    setAllUser(rest)                 
+                }
+            })
+           } else {
+              swal("Your imaginary file is safe!");
+            }
+          });
     }
+
+
     return (
         <div>
             <div className="container mx-auto bg-light row my-5 py-4 g-4">
@@ -46,13 +69,14 @@ const ManageAll = () => {
                         <Card className="border-0 cart">
                         <Card.Img variant="top" height="150" src={service?.img} />
                         <Card.Body>
-                            <Card.Title className="fs-4 py-2">{service?.title}</Card.Title>
-                            <Card.Title><span className="dark-blue text-white px-3 rounded fw-bold py-1">{service?.price}</span></Card.Title>
-                            <Card.Text>{service?.place}</Card.Text>
+                            <Card.Title className="fs-4 py-2 fw-bold text-danger">{service?.title}</Card.Title>
+                            <Card.Title><span className="dark-blue text-white px-3 rounded fw-bold py-1">price {service?.price}</span></Card.Title>
+                            <Card.Text className="fw-bold">{service?.place}</Card.Text>
                             <Card.Text>{service?.location}</Card.Text>
+                            <Card.Text>{service?.email}</Card.Text>
                             <div className="d-flex justify-content-between align-items-center">
-                            <Button onClick={()=>handleApproved(service?._id)}  variant="danger text-white">{service?.status}</Button>
-                            <Button onClick={()=>handleDelete(service?._id)} variant="warning text-primary">Delete</Button>
+                            <Button className="" onClick={()=>handleApproved(service?._id)}  variant="danger text-white">{service?.status}</Button>
+                            <Button className="text-primary fw-bold" onClick={()=>handleDelete(service?._id)} variant="warning text-primary">Delete</Button>
                             </div>
                         </Card.Body>
                         </Card>

@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import UseAuth from '../../Context/UseAuth';
+import swal from 'sweetalert';
 
 const PlaceOrder = () => {
     const { register, handleSubmit,reset } = useForm();
@@ -23,24 +24,17 @@ const PlaceOrder = () => {
 
     
     const onSubmit = data => {
-        // const newUser = {
-        //     description: data.description,
-        //     email: data.email,
-        //     img: data.img,
-        //     location: data.location,
-        //     place: data.place,
-        //     price: data.price,
-        //     rate: data.rate,
-        //     status: data.status,
-        //     title: data.title
-        // }
+       
         delete data._id;
         console.log(data)
         data.status= 'pending'
        axios.post(`https://tranquil-beyond-59039.herokuapp.com/addedService`,data)
        .then(res=>{
            if(res.data){
-               alert('added successful')
+            swal({
+                title: "Added successful!",                    
+                icon: "success",
+              });
            }
        })
      };

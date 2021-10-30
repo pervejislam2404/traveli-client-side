@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import UseAuth from '../../Context/UseAuth';
 import { Card,Button } from 'react-bootstrap';
+import swal from 'sweetalert';
 
 const MyOrders = () => {
     const [added,setAdded] = useState([]);
@@ -17,24 +18,38 @@ const MyOrders = () => {
     },[user.email])
     
     const handleDelete =(id)=>{
-        const checker = window.confirm('Are you sure delete?')
-      if(checker){ 
-        axios.delete(`https://tranquil-beyond-59039.herokuapp.com/deleteOne/${id}`)
-        .then(res=>{
-          if(res.data){
-              console.log(res.data);
-              alert('delete successful')
+
+      swal({
+        title: "Are you sure to delete?",            
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+
+        if (willDelete) {
+          swal("Ops! File has been deleted!", {
+            icon: "success",
+          });
+          axios.delete(`https://tranquil-beyond-59039.herokuapp.com/deleteOne/${id}`)
+          .then(res=>{
+            if(res.data.acknowledged){             
               const rest = added.filter(it=> it._id !== id);
-              setAdded(rest)
-          };
-          console.log(typeof(id));
-        })}
+              setAdded(rest)               
+            }
+        })
+       } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
+
+
     }
     
 
 
    
-    // console.log(added,user.email);
+  
     return (
         <div>
            <div className="container mx-auto bg-light row py-5 g-4">
@@ -46,7 +61,7 @@ const MyOrders = () => {
                                 <Card.Title className="text-danger fs-4">{item?.title}</Card.Title>
                                 <Card.Title className="text-danger">{item?.place}</Card.Title>
                                 <Card.Text className="fw-light">
-                                  {item?.description}
+                                  {item?.description.slice(0,200)}
                                 </Card.Text>
                                 <Button onClick={()=>handleDelete(item._id)} variant="danger text-white my-3">Delete</Button>
                                 <div className="d-flex justify-content-between">

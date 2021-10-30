@@ -1,50 +1,26 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
-import coxs from './coxs-bazar.jpg';
-import sazekImg from './sazek.jpg';
-import jaflongImg from './jaflong.jpg'; 
+import banner from './top-banner.jpg'
+import './Banner.css'
+import { Button } from 'react-bootstrap';
 
 const Banner = () => {
     return (
         <div>
-            <Carousel>
-                <Carousel.Item interval={1000}>
-                    <img
-                    height="700"
-                    className="d-block w-100"
-                    src={coxs}
-                    alt="First slide"
-                    />
-                    <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={500}>
-                    <img
-                    height="700"
-                    className="d-block w-100"
-                    src={sazekImg}
-                    alt="Second slide"
-                    />
-                    <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    height="700"
-                    className="d-block w-100"
-                    src={jaflongImg}
-                    alt="Third slide"
-                    />
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+            <div className="overflow-hidden banner" style={{height:'60vh'}}>
+                <img src={banner} alt="" />
+                <div className="banner-item">
+                    <div className="rounded">
+                        <div className="text-light rounded my-3 px-4 py-3 light-bg">
+                            <h1>Discover what you love.<span className="text-primary">Books</span><br/>experiences all over the Bangladesh</h1>
+                        </div>
+                        <div className="d-flex justify-content-between p-4 dark-blue rounded">
+                            <input className="banner-input ps-2 fw-bold rounded" placeholder="Where are you going?" type="text" />
+                            <Button className="ms-3 fw-bold rounded-pill px-4">Search</Button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

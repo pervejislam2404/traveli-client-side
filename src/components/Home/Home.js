@@ -10,6 +10,7 @@ import Gallery from './Gallery/Gallery';
 
 const Home = () => {
     const [items,setItems] = useState([]) 
+  
 
     useEffect(() =>{
         axios('https://tranquil-beyond-59039.herokuapp.com/places')
