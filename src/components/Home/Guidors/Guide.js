@@ -14,7 +14,7 @@ const Guide = () => {
             <div className="row">
                 <div className="text-center text-danger py-3"><h2>OUR BEST GUIDES</h2></div>
                 <div className="col-12 col-lg-3"></div>
-                <div className="col-12 col-lg-6 row">
+                <div className="col-12 col-lg-6 row mx-auto">
                    {guides.map((guide,index)=>{return(
                        <div key={index} className="col-lg-4 col-12">
                        <Card className="border-0">

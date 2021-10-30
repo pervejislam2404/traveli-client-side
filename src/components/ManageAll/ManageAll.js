@@ -21,12 +21,16 @@ const ManageAll = () => {
         const updateUser = {status: 'Approved'}
         axios.put(`https://tranquil-beyond-59039.herokuapp.com/updateUser/${id}`,updateUser)
         .then(response=> {
-            if(response.data){
-                console.log(response.data);
+            if(response.data.modifiedCount){                
                 setChecker(true)
                 swal({
                     title: "Approved!",                    
                     icon: "success",
+                  });
+            }else{
+                swal({
+                    title: "Faild! please try again",                    
+                    icon: "warning",
                   });
             }
         })

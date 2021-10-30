@@ -18,7 +18,6 @@ const MyOrders = () => {
     },[user.email])
     
     const handleDelete =(id)=>{
-
       swal({
         title: "Are you sure to delete?",            
         icon: "warning",
@@ -61,11 +60,11 @@ const MyOrders = () => {
                                 <Card.Title className="text-danger fs-4">{item?.title}</Card.Title>
                                 <Card.Title className="text-danger">{item?.place}</Card.Title>
                                 <Card.Text className="fw-light">
-                                  {item?.description.slice(0,200)}
+                                  {item?.description}
                                 </Card.Text>
                                 <Button onClick={()=>handleDelete(item._id)} variant="danger text-white my-3">Delete</Button>
                                 <div className="d-flex justify-content-between">
-                                    <h5 className="dark-blue px-2 text-white rounded">{item?.price}</h5>
+                                    <h5 className="dark-blue px-2 p-1 text-white rounded">{item?.price}</h5>
                                     <h5 className="dark-blue px-3 p-1 text-white rounded">{item?.duration}</h5>
                                     <h5 className="">Review({item?.rate})</h5>
                                 </div>
