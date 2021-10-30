@@ -12,7 +12,7 @@ const MyOrders = () => {
       axios(`https://tranquil-beyond-59039.herokuapp.com/added/${user.email}`)
         .then(res=>{
             setAdded(res.data)
-            console.log(res.data);
+            // console.log(res.data);
         })
     },[user.email])
     
@@ -24,8 +24,8 @@ const MyOrders = () => {
           if(res.data){
               console.log(res.data);
               alert('delete successful')
-            //   const rest = added.filter(it=> it._id !== id);
-            //   setAdded(rest)
+              const rest = added.filter(it=> it._id !== id);
+              setAdded(rest)
           };
           console.log(typeof(id));
         })}
@@ -54,6 +54,7 @@ const MyOrders = () => {
                                     <h5 className="dark-blue px-3 p-1 text-white rounded">{item?.duration}</h5>
                                     <h5 className="">Review({item?.rate})</h5>
                                 </div>
+                                <h5 className="bg-warning text-center px-3 p-2 text-white rounded">{item?.status}</h5>
                             </Card.Body>
                             </Card>
                    </div>

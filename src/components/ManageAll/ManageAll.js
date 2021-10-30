@@ -16,7 +16,7 @@ const ManageAll = () => {
 
     const handleApproved=(id) => {
         const updateUser = {status: 'Approved'}
-        axios.put(`https://tranquil-beyond-59039.herokuapp.com/${id}`,updateUser)
+        axios.put(`https://tranquil-beyond-59039.herokuapp.com/updateUser/${id}`,updateUser)
         .then(response=> {
             if(response.data){
                 console.log(response.data);
@@ -28,7 +28,7 @@ const ManageAll = () => {
 
     const handleDelete=(id) => {
         const checker = window.confirm('Are you sure delete?')
-      if(checker){ console.log(id);
+      if(checker){
         axios.delete(`https://tranquil-beyond-59039.herokuapp.com/deleteOne/${id}`)
         .then(res=>{
           if(res.data.acknowledged){

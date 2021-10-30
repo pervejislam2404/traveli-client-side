@@ -17,11 +17,25 @@ const PlaceOrder = () => {
         .then(res=>{
             setService(res.data)
             reset(res.data)
+            console.log(res.data);
         })
-    },[reset])
+    },[id,reset])
 
     
     const onSubmit = data => {
+        // const newUser = {
+        //     description: data.description,
+        //     email: data.email,
+        //     img: data.img,
+        //     location: data.location,
+        //     place: data.place,
+        //     price: data.price,
+        //     rate: data.rate,
+        //     status: data.status,
+        //     title: data.title
+        // }
+        delete data._id;
+        console.log(data)
         data.status= 'pending'
        axios.post(`https://tranquil-beyond-59039.herokuapp.com/addedService`,data)
        .then(res=>{

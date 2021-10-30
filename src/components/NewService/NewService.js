@@ -7,7 +7,7 @@ const NewService = () => {
 
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         axios.post('https://tranquil-beyond-59039.herokuapp.com/newUser',data)
         .then((response) => {
             if(response.data){
@@ -24,7 +24,7 @@ const NewService = () => {
                    <div className="col-lg-4 col-12"></div>
                    <div className="col-lg-4 col-12">
                         <form className="d-flex flex-column border p-3 bg-white" onSubmit={handleSubmit(onSubmit)}>
-                            {/* <input className="my-2 p-2" {...register("email")} placeholder="Email"/> */}
+                            <input className="my-2 p-2" {...register("email")} placeholder="Email"/>
                             <input className="my-2 p-2" {...register("rate")} placeholder="Rating"/>
                             <input className="my-2 p-2" {...register("title")} placeholder="Title"/>
                             <input className="my-2 p-2" {...register("place")} placeholder="Place"/>
