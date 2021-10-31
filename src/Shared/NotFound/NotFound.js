@@ -1,9 +1,12 @@
 import React from 'react';
+import error from './error.png'
+import './NotFound.css';
+
 
 const NotFound = () => {
     return (
-        <div>
-            <h1>this is not found</h1>
+        <div className="bg-light">
+            <img style={{width: '100%',height: '90vh'}} className="" src={error} alt="" />
         </div>
     );
 };

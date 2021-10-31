@@ -73,6 +73,7 @@ const Home = () => {
                    <div className="d-flex text-warning justify-content-center align-items-center">
                        <p className="p-3 text-info bg-danger">Himchori(20)</p>
                        <p className="p-3 text-light bg-primary">Sundarban(50)</p>
+                       <p className="p-3 text-light dark-blue">Cox'x Bazar(60)</p>
                    </div>
                </div>
            </div>

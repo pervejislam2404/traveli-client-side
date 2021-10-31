@@ -1,0 +1,6 @@
+.error {
+    background-image: url('./error.png')!important;
+    background-size: cove! important;
+    background-position: center center! important;
+    background-repeat: no-repeat;
+}
