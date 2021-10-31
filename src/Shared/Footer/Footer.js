@@ -26,7 +26,7 @@ const Footer = () => {
                {/* best-places */}
                <div className="col-lg-3 col-6">
                     <h3>Popular destination</h3>
-                    <Table className="border-0" responsive="sm">    
+                    <Table className="border-0 table table-borderless" responsive="sm">    
                         <tbody className="text-white border-0">
                             <tr style={{border: 'none!important'}} className="border-0">
                                 <td>Cox's bazar</td>
