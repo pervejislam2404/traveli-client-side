@@ -32,12 +32,13 @@ const Login = () => {
     return (
         <div>
             <div className="w-75 mx-auto rounded row">
-               <div className="col-6">
+               <div className="col-12 col-lg-6">
                    <img className="img-fluid" src={myBanner} alt="" />
                </div>
-               <div className="col-6 d-flex justify-content-center align-items-center">
+
+               <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center">
                   
-                  <span onClick={handleGoogleSingIn} className="row dark-blue text-white p-3 rounded shadow-lg">
+                  <span onClick={handleGoogleSingIn} className="row dark-blue text-white p-3 rounded shadow-lg m-3">
                       <img height="50" width="20" src={logo} alt="" className="col-4" />
                       <h5 className="col-8 pt-2">Google Login</h5>
                   </span>

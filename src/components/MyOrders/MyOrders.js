@@ -7,13 +7,12 @@ import swal from 'sweetalert';
 const MyOrders = () => {
     const [added,setAdded] = useState([]);
     const {user} = UseAuth()
-    // const userEmail = user.email;
-    
+ 
     useEffect(() =>{
       axios(`https://tranquil-beyond-59039.herokuapp.com/added/${user.email}`)
         .then(res=>{
             setAdded(res.data)
-            // console.log(res.data);
+           
         })
     },[user.email])
     
@@ -58,7 +57,7 @@ const MyOrders = () => {
                             <Card.Body>
                                 <Card.Title className="text-danger fs-4">{item?.title}</Card.Title>
                                 <Card.Title className="text-danger">{item?.place}</Card.Title>
-                                
+
                                 <Card.Text className="fw-light text-muted">
                                   {item?.description}
                                 </Card.Text>

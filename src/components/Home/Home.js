@@ -22,7 +22,7 @@ const Home = () => {
 
     const handleClick = (val) =>{
       const newSearch = val.target.value.toLowerCase();
-      console.log(newSearch)
+     
       const newItems = items.filter(it=>it.title.toLowerCase().includes(newSearch));
       setItems(newItems)
     }
@@ -113,7 +113,7 @@ const Home = () => {
          </div>
            
            {/* information */}
-           
+
        <div className="bg-info">
           <div className="container row mx-auto g-4 py-5">
              <div className="col-12 col-lg-3">

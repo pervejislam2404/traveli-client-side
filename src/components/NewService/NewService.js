@@ -10,7 +10,7 @@ const NewService = () => {
 
 
     const onSubmit = data => {
-        console.log(data);
+    
         axios.post('https://tranquil-beyond-59039.herokuapp.com/newUser',data)
         .then((response) => {
             if(response.data){

@@ -37,7 +37,7 @@ const PlaceOrder = () => {
 
         data.booked=today;      
         data.status= 'pending'
-        console.log(data)
+     
 
        axios.post(`https://tranquil-beyond-59039.herokuapp.com/addedService`,data)
        .then(res=>{
@@ -62,7 +62,7 @@ const PlaceOrder = () => {
                 </div>
                 <div className="col-12 col-lg-7">
                     {/* service-information */}
-                    
+
                     <Card.Body className="">
                         <Card.Title>{service?.title}</Card.Title>
                         <Card.Title>{service?.place}</Card.Title>
