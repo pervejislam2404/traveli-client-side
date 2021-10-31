@@ -16,10 +16,16 @@ const Home = () => {
         axios('https://tranquil-beyond-59039.herokuapp.com/places')
         .then(res=> setItems(res.data))
     },[])
+
+    const handleClick = (val) =>{
+      const newSearch = val.target.value.toLowerCase();
+      const newItems = items.filter(it=>it.title.toLowerCase().includes(newSearch));
+      setItems(newItems)
+    }
     return (
         <div>
-           <Banner/>
-           <div className="row bg-light">
+           <Banner handler={handleClick}/>
+           <div className="row lighter-bg">
                <div className="col-1 col-lg-2"></div>
                {items.length ?<div className="col-10 col-lg-8 row g-5 mx-auto pb-4">
                         {

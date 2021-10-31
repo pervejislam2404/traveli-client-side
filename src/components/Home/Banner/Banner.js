@@ -3,7 +3,7 @@ import banner from './top-banner.jpg'
 import './Banner.css'
 import { Button } from 'react-bootstrap';
 
-const Banner = () => {
+const Banner = ({handler}) => {
     return (
         <div>
             <div className="overflow-hidden banner" style={{height:'60vh'}}>
@@ -14,7 +14,7 @@ const Banner = () => {
                             <h1>Discover what you love.<span className="text-primary">Books</span><br/>experiences all over the Bangladesh</h1>
                         </div>
                         <div className="d-flex justify-content-between p-4 dark-blue rounded">
-                            <input className="banner-input ps-2 fw-bold rounded" placeholder="Where are you going?" type="text" />
+                            <input onChange={(e)=>handler(e)} className="banner-input ps-2 fw-bold rounded" placeholder="Where are you going?" type="text" />
                             <Button className="ms-3 fw-bold rounded-pill px-4">Search</Button>
                         </div>
 
