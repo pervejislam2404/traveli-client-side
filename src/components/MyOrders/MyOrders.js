@@ -73,6 +73,7 @@ const MyOrders = () => {
                                       <h5 className="dark-blue px-3 p-1 text-white rounded">{item?.duration}</h5>                                    
                                       <Button onClick={()=>handleDelete(item._id)} variant="danger text-white ">Delete</Button>
                                 </div>
+                                
                                 <h5 className={`${item.status==="pending"? 'bg-warning text-primary': 'bg-danger text-lite'} px-3 p-2 rounded text-center`}>{item?.status}</h5>
                             </Card.Body>
                             </Card>

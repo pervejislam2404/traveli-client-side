@@ -16,6 +16,7 @@ const Gallery = () => {
                            <img className="img-fluid rounded rounded" src={bannerFive} alt="" />
                         </div>                         
                     </div>
+                    
                     <div className="col-12 col-lg-4">
                         <div className=" p-3 bg-light rounded">
                            <img className="img-fluid rounded" src={bannerFour} alt="" />

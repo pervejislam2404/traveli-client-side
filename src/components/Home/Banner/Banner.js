@@ -10,6 +10,7 @@ const Banner = ({handler}) => {
                 <img src={banner} alt="" />
                 <div className="banner-item">
                     <div className="rounded">
+                        
                         <div className="text-light rounded my-3 px-4 py-3 light-bg">
                             <h1>Discover what you love.<span className="text-primary">Books</span><br/>experiences all over the Bangladesh</h1>
                         </div>
