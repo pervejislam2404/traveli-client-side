@@ -11,7 +11,7 @@ const Footer = () => {
                    <p>5th flora, 700/D Gulsan road,Dhaka</p>
                    <p>lane Dhaka-1782</p>
                    <p>+10 367 826 2567</p>
-                   <p>contact@carpenter.com</p>
+                   <p>contact@Travli.com</p>
                </div>
                <div className="col-lg-3 col-6">
                     <h3>Company</h3>

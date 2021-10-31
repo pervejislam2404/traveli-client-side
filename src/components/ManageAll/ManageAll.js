@@ -69,7 +69,7 @@ const ManageAll = () => {
         <div>
             <div className="container mx-auto bg-light row my-5 py-4 g-4">
                {allUser.map((service,index)=>{return(
-                   <div key={index} className="col-3">
+                   <div key={index} className="col-12 col-lg-3">
                         <Card className="border-0 cart">
                         <Card.Img variant="top" height="150" src={service?.img} />
                         <Card.Body>

@@ -21,7 +21,7 @@ const Home = () => {
            <Banner/>
            <div className="row bg-light">
                <div className="col-1 col-lg-2"></div>
-               {items.length ?<div className="col-10 col-lg-8 row g-5 mx-auto">
+               {items.length ?<div className="col-10 col-lg-8 row g-5 mx-auto pb-4">
                         {
                         items.map((service,index)=><Service key={index} service={service}/>)
                         }
@@ -33,7 +33,7 @@ const Home = () => {
                <div className="col-2 col-lg-2"></div>
            </div>
          <Guide/>
-         {/* <Gallery/> */}
+         <Gallery/>
 
          <div className="container mx-auto g-5">
             <div className="row py-5 g-4">

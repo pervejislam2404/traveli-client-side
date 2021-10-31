@@ -45,6 +45,7 @@ const PlaceOrder = () => {
                 title: "Added successful!",                    
                 icon: "success",
               });
+             
            }
        })
      };
