@@ -21,7 +21,7 @@ const Service = ({service}) => {
                 <Card.Title className="text-danger fs-4">{title}</Card.Title>
                 <Card.Title className="fs-5">{place}</Card.Title>
                 <Card.Text>{location}</Card.Text>
-                <Card.Text>
+                <Card.Text className="text-muted">
                {description.slice(0,60)+'...'}
                 </Card.Text>
                 <h5>Review({rate})</h5>

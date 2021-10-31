@@ -55,20 +55,21 @@ const MyOrders = () => {
                {added?.map((item,index)=> {return(
                    <div key={index} className="col-12 col-lg-4">
                             <Card className="border-0 shadow-lg">
-                            <Card.Img height="250"variant="top" src={item?.img} />
+                            <Card.Img className="" height="250" variant="top" src={item?.img} />
                             <Card.Body>
                                 <Card.Title className="text-danger fs-4">{item?.title}</Card.Title>
                                 <Card.Title className="text-danger">{item?.place}</Card.Title>
-                                <Card.Text className="fw-light">
+                                <Card.Text className="fw-light text-muted">
                                   {item?.description}
                                 </Card.Text>
                                 <Button onClick={()=>handleDelete(item._id)} variant="danger text-white my-3">Delete</Button>
+                                <Button className="text-primary my-2 fw-bold" variant="light">booked in {item?.booked}</Button>
                                 <div className="d-flex justify-content-between">
                                     <h5 className="dark-blue px-2 p-1 text-white rounded">{item?.price}</h5>
                                     <h5 className="dark-blue px-3 p-1 text-white rounded">{item?.duration}</h5>
                                     <h5 className="">Review({item?.rate})</h5>
                                 </div>
-                                <h5 className="bg-warning text-center px-3 p-2 text-white rounded">{item?.status}</h5>
+                                <h5 className={`${item.status==="pending"? 'bg-warning text-primary': 'bg-danger text-lite'} px-3 p-2 rounded text-center`}>{item?.status}</h5>
                             </Card.Body>
                             </Card>
                    </div>

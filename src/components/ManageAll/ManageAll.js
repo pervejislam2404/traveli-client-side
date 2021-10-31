@@ -75,13 +75,23 @@ const ManageAll = () => {
                         <Card.Body>
                             <Card.Title className="fs-4 py-2 fw-bold text-danger">{service?.title}</Card.Title>
                             <Card.Title><span className="dark-blue text-white px-3 rounded fw-bold py-1">price {service?.price}</span></Card.Title>
+
+                            <Card.Title className="fs-4 py-2 fw-bold text-primary">{service?.duration}</Card.Title>
+
                             <Card.Text className="fw-bold">{service?.place}</Card.Text>
+
                             <Card.Text>{service?.location}</Card.Text>
-                            <Card.Text>{service?.email}</Card.Text>
+
+                            <Card.Text className="fw-bold">{service?.email}</Card.Text>
+
+                            <Button className="text-primary my-2 fw-bold" variant="light">booked in {service?.booked}</Button>
                             <div className="d-flex justify-content-between align-items-center">
-                            <Button className="" onClick={()=>handleApproved(service?._id)}  variant="danger text-white">{service?.status}</Button>
+
+                            <Button className={`${service.status==="pending"? 'bg-info text-primary': 'bg-danger text-primary'} px-3 p-2 rounded text-center border-0`} onClick={()=>handleApproved(service?._id)}  variant="danger text-white">{service?.status}</Button>
+                           
                             <Button className="text-primary fw-bold" onClick={()=>handleDelete(service?._id)} variant="warning text-primary">Delete</Button>
                             </div>
+                            
                         </Card.Body>
                         </Card>
                    </div>

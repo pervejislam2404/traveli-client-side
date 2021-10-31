@@ -24,10 +24,20 @@ const PlaceOrder = () => {
 
     
     const onSubmit = data => {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;       
        
         delete data._id;
+
+
+        data.booked=today;
+        data.email=user.email;
         console.log(data)
         data.status= 'pending'
+
        axios.post(`https://tranquil-beyond-59039.herokuapp.com/addedService`,data)
        .then(res=>{
            if(res.data){
@@ -72,12 +82,12 @@ const PlaceOrder = () => {
                    <div className="col-lg-4 col-12"></div>
                    <div className="col-lg-4 col-12">
                         <form className="d-flex flex-column border p-3 bg-white" onSubmit={handleSubmit(onSubmit)}>
-                            <input className="my-2 p-2" {...register("email")} defaultValue={user?.email} placeholder="Email" disabled/>
+                           
                             <input className="my-2 p-2" {...register("rate")} defaultValue={service?.rate} placeholder="Rating"/>
                             <input className="my-2 p-2" {...register("title")} defaultValue={service?.title} placeholder="Title"/>
                             <input className="my-2 p-2" {...register("place")} defaultValue={service?.place} placeholder="Place"/>
                             <input className="my-2 p-2" {...register("duration")} defaultValue={service?.duration} placeholder="Duration"/>
-                            <input className="my-2 p-2" {...register("location")} defaultValue={service?.location} placeholder="Location"/>
+                            <input className="my-2 p-2" {...register("location")} defaultValue={service?.location} placeholder="Location" disabled/>
                             <input className="my-2 p-2" {...register("description")} defaultValue={service?.description} placeholder="Description"/>
                             <input className="my-2 p-2" type="text" {...register("price")} defaultValue={service?.price} />
                             <input className="my-2 p-2 bg-danger text-white border-0" type="submit"/>
