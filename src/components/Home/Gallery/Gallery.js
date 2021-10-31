@@ -9,6 +9,8 @@ const Gallery = () => {
         <div className="dark-blue p-5">
             <div className="container">
                 <div className="row g-3">
+                    {/* image-gallery-items */}
+                    
                     <div className="col-12 col-lg-4">
                         <div className="p-3 bg-light">
                            <img className="img-fluid rounded rounded" src={bannerFive} alt="" />

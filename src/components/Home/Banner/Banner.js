@@ -13,9 +13,11 @@ const Banner = ({handler}) => {
                         <div className="text-light rounded my-3 px-4 py-3 light-bg">
                             <h1>Discover what you love.<span className="text-primary">Books</span><br/>experiences all over the Bangladesh</h1>
                         </div>
+                              {/* search-field */}
+                              
                         <div className="d-flex justify-content-between p-4 dark-blue rounded">
                             <input onChange={(e)=>handler(e)} className="banner-input ps-2 fw-bold rounded" placeholder="Where are you going?" type="text" />
-                            <Button className="ms-3 fw-bold rounded-pill px-4">Search</Button>
+                            <Button className="ms-3 fw-bold rounded px-4">Search</Button>
                         </div>
 
                     </div>

@@ -23,20 +23,26 @@ function App() {
        <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/home" component={Home}/>
+
           <PrivateRoute path="/placeOrder/:id">
               <PlaceOrder/>
           </PrivateRoute>
+
           <PrivateRoute path="/myOrder">
             <MyOrders/>
           </PrivateRoute>
+
           <PrivateRoute path="/manageAll">
             <ManageAll/>
           </PrivateRoute>
+
           <PrivateRoute path="/newService">
             <NewService/>
           </PrivateRoute>
+
           <Route path="/login" component={Login}/>
           <Route path="*" component={NotFound}/>
+          
        </Switch>
        <Footer/>
      </Router>

@@ -11,6 +11,9 @@ const Service = ({service}) => {
        history.push(`/placeOrder/${id}`)
     }
     return (
+
+        // every-single-service-details
+        
         <div className="col-12 col-lg-4">
             <Card className="border-0 cart">
             <div className="hero-section p-2">

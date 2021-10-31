@@ -6,6 +6,8 @@ const Footer = () => {
     return (
         <div className="dark-blue">
            <div className="w-75 mx-auto row text-white py-5">
+
+               {/* office-address */}
                <div className="col-lg-3 col-6">
                    <h3><img height="40" width="40" src={logo} alt="" /> Traveli</h3>
                    <p>5th flora, 700/D Gulsan road,Dhaka</p>
@@ -18,9 +20,10 @@ const Footer = () => {
                     <p>Pricing</p>
                     <p>About</p>
                     <p>Gallery</p>
-                    <p>Contact</p>
-                    
+                    <p>Contact</p>                    
                </div>
+
+               {/* best-places */}
                <div className="col-lg-3 col-6">
                     <h3>Popular destination</h3>
                     <Table className="border-0" responsive="sm">    
@@ -44,11 +47,13 @@ const Footer = () => {
                         </tbody>
                     </Table>
                </div>
+
+               {/* icons-section */}
                <div className="col-lg-3 col-6 d-flex flex-column align-items-center justify-content-between fs-1">
-                <i class="fab fa-facebook-square text-light"></i>
-                <i class="fab fa-instagram-square text-danger"></i>
-                <i class="fab fa-youtube-square text-danger"></i>
-                <i class="fab fa-twitter-square text-info"></i>
+                    <i className="fab fa-facebook-square text-light"></i>
+                    <i className="fab fa-instagram-square text-danger"></i>
+                    <i className="fab fa-youtube-square text-danger"></i>
+                    <i className="fab fa-twitter-square text-info"></i>
                </div>
            </div>
         </div>

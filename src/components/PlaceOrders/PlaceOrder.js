@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import axios from 'axios';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import UseAuth from '../../Context/UseAuth';
 import swal from 'sweetalert';
 
@@ -24,6 +24,8 @@ const PlaceOrder = () => {
 
     
     const onSubmit = data => {
+        // current-date-picker
+
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); 
@@ -59,6 +61,8 @@ const PlaceOrder = () => {
                 <Card.Img style={{height: '100%!important'}} className="img-fluid" variant="top" src={service?.img} />
                 </div>
                 <div className="col-12 col-lg-7">
+                    {/* service-information */}
+                    
                     <Card.Body className="">
                         <Card.Title>{service?.title}</Card.Title>
                         <Card.Title>{service?.place}</Card.Title>
@@ -87,12 +91,19 @@ const PlaceOrder = () => {
                              <input className="my-2 p-2" {...register("name",{ required: true })} defaultValue={user?.displayName} placeholder="Name"/>
 
                             <input className="my-2 p-2" {...register("rate")} defaultValue={service?.rate} placeholder="Rating"/>
+
                             <input className="my-2 p-2" {...register("title")} defaultValue={service?.title} placeholder="Title"/>
+
                             <input className="my-2 p-2" {...register("place")} defaultValue={service?.place} placeholder="Place"/>
+
                             <input className="my-2 p-2" {...register("duration")} defaultValue={service?.duration} placeholder="Duration"/>
+
                             <input className="my-2 p-2" {...register("location")} defaultValue={service?.location} placeholder="Location" disabled/>
+
                             <input className="my-2 p-2" {...register("description")} defaultValue={service?.description} placeholder="Description"/>
+
                             <input className="my-2 p-2" type="text" {...register("price")} defaultValue={service?.price} />
+
                             <input className="my-2 p-2 bg-danger text-white border-0" type="submit"/>
                         </form>
                    </div>

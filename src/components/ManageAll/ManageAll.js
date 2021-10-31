@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 const ManageAll = () => {
     const [allUser,setAllUser] =useState([]);
     const [checker,setChecker] = useState(false);
-    // const [val,setVal] = useState('')
+    
 
     useEffect(() =>{
         axios('https://tranquil-beyond-59039.herokuapp.com/allAddedService')
@@ -67,6 +67,9 @@ const ManageAll = () => {
 
     return (
         <div>
+
+            {/* all-added-service */}
+            
             <div className="container mx-auto lighter-bg row my-5 py-4 g-4">
                {allUser.map((service,index)=>{return(
                    <div key={index} className="col-12 col-lg-4">
