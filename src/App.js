@@ -29,7 +29,9 @@ function App() {
           <PrivateRoute path="/myOrder">
             <MyOrders/>
           </PrivateRoute>
-          <Route path="/manageAll" component={ManageAll}/>
+          <PrivateRoute path="/manageAll">
+            <ManageAll/>
+          </PrivateRoute>
           <PrivateRoute path="/newService">
             <NewService/>
           </PrivateRoute>

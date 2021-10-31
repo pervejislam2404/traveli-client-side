@@ -62,12 +62,15 @@ const MyOrders = () => {
                                 <Card.Text className="fw-light text-muted">
                                   {item?.description}
                                 </Card.Text>
-                                <Button onClick={()=>handleDelete(item._id)} variant="danger text-white my-3">Delete</Button>
                                 <Button className="text-primary my-2 fw-bold" variant="light">booked in {item?.booked}</Button>
-                                <div className="d-flex justify-content-between">
+                                <Card.Text className="fw-bold">{item?.email}</Card.Text>
+                                <Card.Text className="fw-bold text-danger">{item?.name}</Card.Text>
+                                <h5 className="">Review({item?.rate})</h5>
+                                <div className="d-flex justify-content-between my-2">
                                     <h5 className="dark-blue px-2 p-1 text-white rounded">{item?.price}</h5>
                                     <h5 className="dark-blue px-3 p-1 text-white rounded">{item?.duration}</h5>
-                                    <h5 className="">Review({item?.rate})</h5>
+                                    
+                                    <Button onClick={()=>handleDelete(item._id)} variant="danger text-white ">Delete</Button>
                                 </div>
                                 <h5 className={`${item.status==="pending"? 'bg-warning text-primary': 'bg-danger text-lite'} px-3 p-2 rounded text-center`}>{item?.status}</h5>
                             </Card.Body>

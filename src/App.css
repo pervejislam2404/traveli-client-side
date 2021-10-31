@@ -24,6 +24,10 @@
         background-color: #BBBBBB!important;
     }
     
+    .lighter-bg {
+        background-color: #e2e2e266!important;
+    }
+    
     @media (prefers-reduced-motion: no-preference) {
         .App-logo {
             animation: App-logo-spin infinite 20s linear;

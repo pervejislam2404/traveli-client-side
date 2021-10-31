@@ -33,10 +33,9 @@ const PlaceOrder = () => {
         delete data._id;
 
 
-        data.booked=today;
-        data.email=user.email;
-        console.log(data)
+        data.booked=today;      
         data.status= 'pending'
+        console.log(data)
 
        axios.post(`https://tranquil-beyond-59039.herokuapp.com/addedService`,data)
        .then(res=>{
@@ -67,11 +66,11 @@ const PlaceOrder = () => {
                         <Card.Text className="fw-light">
                         {service?.description}
                         </Card.Text>
-                        <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-lg-flex justify-content-between align-items-center">
                                <h5 className="dark-blue px-3 p-1 text-white rounded">{service?.price}</h5>
+                               <h4 className="dark-blue px-3 p-1 text-white rounded">Review({service?.rate})</h4>
                                <h5 className="dark-blue px-3 p-1 text-white rounded">{service?.duration}</h5>
                         </div>
-                        <h4>Review({service?.rate})</h4>
                     </Card.Body>
                 </div>
             </div>
@@ -83,7 +82,10 @@ const PlaceOrder = () => {
                    <div className="col-lg-4 col-12"></div>
                    <div className="col-lg-4 col-12">
                         <form className="d-flex flex-column border p-3 bg-white" onSubmit={handleSubmit(onSubmit)}>
-                           
+
+                              <input className="my-2 p-2" {...register("email",{ required: true })} defaultValue={user?.email} placeholder="Email"/>
+                             <input className="my-2 p-2" {...register("name",{ required: true })} defaultValue={user?.displayName} placeholder="Name"/>
+
                             <input className="my-2 p-2" {...register("rate")} defaultValue={service?.rate} placeholder="Rating"/>
                             <input className="my-2 p-2" {...register("title")} defaultValue={service?.title} placeholder="Title"/>
                             <input className="my-2 p-2" {...register("place")} defaultValue={service?.place} placeholder="Place"/>
